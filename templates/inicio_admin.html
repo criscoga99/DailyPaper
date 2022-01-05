@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+{% block style %}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles_admin.css')}}">
+{% endblock %}
+{% block script %}
+    <script src="{{url_for('static', filename='js/Script_admin.js')}}"></script>
+{% endblock %}
+{% block contenido %}
+<a href="{{ url_for('inicio_admin') }}"><button id="btn" title="Volver las tablas al estado original"><img src="{{url_for('static', filename='img/Back.png')}}" id="img"></button></br></a>
+<button id="btn" title="Mostrar filtros de usuarios" onclick=mostrarFiltrosUsuarios()><img src="{{url_for('static', filename='img/Filtro.png')}}" id="img"></button></br>
+<button id="btn" title="Mostrar tabla de usuarios" onclick=mostrarTablaUsuarios()><img src="{{url_for('static', filename='img/Ojo.png')}}" id="img"></button></br>
+<button id="btn" title="Mostrar tabla de publicaciones" onclick=mostrarTablaPublicaciones()><img src="{{url_for('static', filename='img/Ojo.png')}}" id="img"></button></br>
+<a href="{{ url_for('login') }}"><button id="btnFiltro" title="Cerrar"><img src="{{url_for('static', filename='img/Cerrar_sesion.png')}}" id="img"></button></br></a>
+<button title="Redactar" onclick=mostrarRedaccion()><img src="{{url_for('static', filename='img/Pen.png')}}" id="img"></button></br>
+<div id="redactar">
+    <form action="/inicio/redactar_admin" method="POST">
+        <input type="text" name="titular" id="titular" placeholder="Escribe el titular aquí...">
+        </br>
+        </br>
+        <textarea name="cuerpo" id="cuerpo" rows="4" cols="50">
+            Escribe el cuerpo aquí...
+        </textarea>
+        </br>
+        </br>
+        <select name="topic" id="topicCombobox">
+            <option value="Naturaleza">Naturaleza</option>
+            <option value="Economía">Economía</option>
+            <option value="Política">Política</option>
+            <option value="Internacional">Internacional</option>
+            <option value="Moda">Moda</option>
+            <option value="Tecnología">Tecnología</option>
+            <option value="Ciencia">Ciencia</option>
+            <option value="Otros">Otros</option>
+
+        </select>
+        <button type="submit">Publicar</button>
+    </form>
+</div>
+</br>
+<div id="filtrosUsuarios">
+    <form action="/inicio_admin/ordenar" method="POST">
+        <b>Ordenar:</b>
+        <select name="orderby" id="orderCombobox">
+            <option value="Alfabéticamente">Alfabéticamente</option>
+            <option value="Usuarios con más publicaciones">Usuarios con más publicaciones</option>
+            <option value="Usuarios con menos publicaciones">Usuarios con menos publicaciones</option>
+            <option value="Publicaciones más recientes">Publicaciones más recientes</option>
+            <option value="Publicaciones menos recientes">Publicaciones menos recientes</option>
+        </select>
+        <button type="submit" id="btnOrdenar">Ordenar</button>
+    </form>
+    <form action="/inicio_admin/buscar_users" method="POST">
+        <input type="text" name="buscar" id="textBuscar" placeholder="Buscar usuarios">
+        <button type="submit" id="btnBuscar">Buscar</button>
+    </form>
+    <form action="/inicio_admin/buscar_posts" method="POST">
+        <input type="text" name="buscar" id="textBuscar" placeholder="Buscar publicación">
+        <button type="submit" id="btnBuscar">Buscar</button>
+    </form>
+    <form action="/inicio_admin/buscar_posts_user" method="POST">
+        <input type="text" name="buscar" id="textBuscar" placeholder="Buscar publicación por usuario">
+        <button type="submit" id="btnBuscar">Buscar</button>
+    </form>
+    <form action="/inicio_admin/buscar_posts_fecha" method="POST">
+        <input type="text" name="buscar" id="textBuscar" placeholder="Buscar publicación por fecha (AAAA/MM/DD)">
+        <button type="submit" id="btnBuscar">Buscar</button>
+    </form>
+    <form action="/inicio_admin/filtrar_tipo" method="POST">
+        <b>Tipo de usuario:</b>
+        <select name="typeuser" id="typeCombobox">
+            <option value="Editorial">Editorial</option>
+            <option value="Usuario">Usuario</option>
+        </select>
+        <button type="submit" id="btnOrdenar">Ordenar</button>
+    </form>
+</div>
+<div id="usuarios">
+    <b><p id="usuariosTitulo">Usuarios</p></b>
+    {% for u in usuarios %}
+        <p>{{ u[0] }} | {{ u[1] }} | {{ u[3] }} |  <a href="{{ url_for('borrar_user', id=u[0]) }}" onclick=confirmarBorradoUsuario()>Borrar</a></p>
+        <hr>
+    {% endfor %}
+</div>
+<div id="publicaciones">
+    <b><p id="publicacionesTitulo">Publicaciones</p></b>
+    {% for n in noticias %}
+        <a>{{ n[0] }} | {{ n[1] }} | {{ n[3] }} | <a href="{{ url_for('borrar_post', id=n[0]) }}" onclick=confirmarBorradoPublicacion()>Borrar</a></a>
+        <hr>
+    {% endfor %}
+</div>
+{% endblock %}

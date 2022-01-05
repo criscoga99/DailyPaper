@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+{% block style %}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles_news.css')}}">
+    {% endblock %}
+{% block contenido %}
+<a href="{{ url_for('explorar') }}"><img src="{{url_for('static', filename='img/Compass.png')}}" id="Compass"></a>
+<div id = "noticia">
+    <h1><p id="titular">{{ titular }}</p></h1>
+    <p id="contenido">{{ contenido }}</p>
+    <p>Creado por: {{ creador }}</p>
+    <p>{{ fecha_publicacion }}</p>
+</div>
+<hr>
+<div id = "postearComentarios">
+    <form action="/inicio/noticia/comentario" method="POST">
+        <input type="text" name="comentario" placeholder="Escribe tu comentario">
+        <button type="submit">Enviar</button>
+    </form>
+</div>
+<div id = "comentarios">
+    {% for c in comentarios %}
+        <b>{{ c[0] }}</b>
+        <p>{{ c[1] }}</p>
+        <p>{{ c[2] }}</p>
+        <hr>
+    {% endfor %}
+</div>
+{% endblock %}

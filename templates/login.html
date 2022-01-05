@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block script %}
+<script src="{{url_for('static', filename='js/script.js')}}"></script>
+{% endblock %}
+{% block style %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/loginstyles.css')}}">
+{% endblock %}
+{% block contenido %}
+<div id="error">
+    <p id="mensaje">{{ mensaje }}</p>
+</div>
+<div id="login">
+    <form action="/login" method="POST">
+        <a id="btnVolver" href="{{url_for('home')}}" onclick=mostrarPortada() onmouseover=iluminarVolver() onmouseout=apagarVolver()>X</a>
+        <p id="user">Usuario</p>
+        <input type="text" name="user">
+        </br>
+        </br>
+        <p>Contraseña</p>
+        <input type="password" name="pass">
+        </br>
+        </br>
+        <button id="btnLogin" type="submit" onmouseover=iluminarLogin() onmouseout=apagarLogin()>Iniciar Sesión</button>
+        </br>
+        </br>
+        <a onclick=mostrarRegistro()>Regístrate</a>
+    </form>
+</div>
+<div id="register">
+    <form action="/register" method="POST">
+        <p id="user">Usuario</p>
+        <input type="text" name="user">
+        <p>Contraseña</p>
+        <input type="password" name="pass">
+        <p>Confirmar contraseña</p>
+        <input type="password" name="confirmpass">
+        <p>Tipo de Usuario</p>
+        <select name="typeuser" id="userCombobox">
+            <option value="Editorial">Editorial</option>
+            <option value="Usuario">Usuario</option>
+            <option value="Admin">Admin</option>
+        </select>
+        </br>
+        </br>
+        <button id="btnRegistrar" type="submit" onmouseover=iluminarRegistrar() onmouseout=apagarRegistrar()>Registrar</button>
+        </br>
+        </br>
+        <a onclick=volverLogin()>Volver al Login</a>
+    </form>
+</div>
+<div id="portada">
+    <p id="Eslogan">La actualidad en la palma de tu mano</p>
+    <p id="Autor">Daily Paper</p>
+    <button id="btnComenzar" onclick=mostrarLogin() onmouseover=iluminarComenzar() onmouseout=apagarComenzar()>Comenzar</button>
+</div>
+{% endblock %}

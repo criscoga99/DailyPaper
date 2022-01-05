@@ -1,0 +1,23 @@
+body {
+    background: url("/static/img/Ajustes.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+p{
+    color: cyan;
+    font-size: 250%;
+    
+}
+input{
+    border-radius: 20px;
+    font: 250% Arial;
+}
+#btnIniciarSesion{
+    background: -webkit-gradient(linear,left top,left bottom,from(#4aa6d6),to(#207daa));
+    padding: 14px 35px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+}

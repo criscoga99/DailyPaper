@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+{% block style %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/explorarstyles.css')}}">
+{% endblock %}
+{% block script %}
+<script src="{{url_for('static', filename='js/script_explorar.js')}}"></script>
+{% endblock %}
+{% block contenido %}
+<a href="{{ url_for('inicio') }}"><button id="btnCasa"><img src="{{url_for('static', filename='img/Home.png')}}" id="Casa"></button></a>
+<button id="btnFiltro" onclick=mostrarFiltros()><img src="{{url_for('static', filename='img/Filtro.png')}}" id="Filtro"></button>
+<div id="filtros">
+    <form action="/inicio/explorar" method="POST">
+        <p>Ordenar por:</p>
+        <select name="orderby" id="userCombobox">
+            <option value="Titular">Titular</option>
+            <option value="Más recientes">Más recientes</option>
+            <option value="Más antiguos">Más antiguos</option>
+        </select>
+        <button type="submit" id="btnOrdenarTitular">Ordenar</button>
+    </form>
+    <form action="/inicio/explorar/buscar_titular" method="POST">
+        <input type="text" name="buscar" placeholder="Buscar publicación">
+        <button type="submit" id="btnBuscarpost">Buscar</button>
+    </form>
+    <form action="/inicio/explorar/buscar_fecha" method="POST">
+        <input type="text" name="buscar" id="buscar" placeholder="AAAA/MM/DD">
+        <button type="submit" id="btnBuscarFecha">Buscar</button>
+    </form>
+    <form action="/inicio/explorar/buscar_tematica" method="POST">
+        <p>Temática:</p>
+        <select name="topic" id="userCombobox">
+            <option value="Naturaleza">Naturaleza</option>
+            <option value="Economía">Economía</option>
+            <option value="Política">Política</option>
+            <option value="Internacional">Internacional</option>
+            <option value="Moda">Moda</option>
+            <option value="Tecnología">Tecnología</option>
+            <option value="Ciencia">Ciencia</option>
+            <option value="Otros">Otros</option>
+
+        </select>
+        <button type="submit" id="btnBuscarTematica">Buscar</button>
+    </form>
+</div>
+<div id="todosPosts">
+    {% for p in publicaciones %}
+        <h1><a href="{{ url_for('news', id=p[0]) }}">{{ p[1] }}</a></h1>
+    {% endfor %}
+</div>
+{% endblock %}

@@ -1,0 +1,95 @@
+body{
+    background: url("/static/img/Fondo_admin.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+button{
+    background-color: transparent;
+    padding: 14px 35px;
+    border-radius: 10px;
+}
+#img{
+    width: 75px;
+    height: 75px;
+}
+#titular{
+    width: 75%;
+    font-size: 50px;
+    border-radius: 10px;
+    margin-left: 10%;
+    margin-top: 5%;
+}
+#cuerpo{
+    width: 75%;
+    font-size: 25px;
+    height: 500px;
+    border-radius: 10px;
+    margin-left: 10%;
+}
+#topicCombobox{
+    width: 60%;
+    font-size: 25px;
+    border-radius: 10px;
+    margin-left: 10%;
+    margin-bottom: 5%;
+}
+#redactar{
+    background-color: royalblue;
+    width: 50%;
+    height: 50%;
+    border-radius: 10px;
+    margin-left: 10%;
+    display: none;
+}
+#usuariosTitulo{
+    font-size: 250%;
+}
+#usuarios{
+    background-color: chartreuse;
+    margin-left: 10%;
+    width: 75%;
+    height: auto;
+    display: none;
+    border-radius: 10px;
+}
+#publicacionesTitulo{
+    font-size: 250%;
+}
+#publicaciones{
+    background-color: chartreuse;
+    margin-left: 10%;
+    width: 75%;
+    height: auto;
+    display: none;
+    border-radius: 10px;
+}
+#orderCombobox{
+    width: 60%;
+    font-size: 25px;
+    border-radius: 10px;
+    margin-left: 5%;
+    margin-top: 5%;
+}
+#textBuscar{
+    width: 60%;
+    font-size: 25px;
+    border-radius: 10px;
+    margin-left: 10%;
+}
+#typeCombobox{
+    width: 60%;
+    font-size: 25px;
+    border-radius: 10px;
+    margin-left: 2%;
+    margin-bottom: 5%;
+}
+#filtrosUsuarios{
+    background-color: royalblue;
+    margin-left: 10%;
+    width: 75%;
+    height: auto;
+    display: none;
+    border-radius: 10px;
+}

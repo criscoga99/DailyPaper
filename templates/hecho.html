@@ -1,0 +1,51 @@
+{% extends "layout.html" %}
+{% block style %}
+    <link rel="stylesheet" href="{{url_for('static', filename='css/styles_users.css')}}">
+{% endblock %}
+{% block script %}
+    <script src="{{url_for('static', filename='js/script_users.js')}}"></script>
+{% endblock %}
+{% block contenido %}
+<div>
+    <div id="regionCerrarSesion">
+        <a href="{{ url_for('login') }}"><img src="{{url_for('static', filename='img/Cerrar_sesion.png')}}" id="Cerrar"></a>
+    </div>
+    <div id="regionExplorar">
+       <a href="{{ url_for('explorar') }}"><img src="{{url_for('static', filename='img/Compass.png')}}" id="Compass"></a> 
+    </div>
+    <div id="regionBuscar">
+        <form action="/inicio/buscar_user/{{usuario}}" method="POST">
+            <input type="text" name="buscar" id="buscar" placeholder="Buscar usuario">
+            <button type="submit">Buscar</button>
+        </form>
+    </div>
+</div>
+<button title="Redactar" onclick=mostrarRedaccion()><img src="{{url_for('static', filename='img/Pen.png')}}" id="img"></button></br>
+<div id="redactar">
+    <form action="/inicio/redactar" method="POST">
+        <input type="text" name="titular" id="titular" placeholder="Escribe el titular aquí...">
+        </br>
+        </br>
+        <textarea name="cuerpo" id="cuerpo" rows="4" cols="50">
+            Escribe el cuerpo aquí...
+        </textarea>
+        </br>
+        </br>
+        <select name="topic" id="topicCombobox">
+            <option value="Naturaleza">Naturaleza</option>
+            <option value="Economía">Economía</option>
+            <option value="Política">Política</option>
+            <option value="Internacional">Internacional</option>
+            <option value="Moda">Moda</option>
+            <option value="Tecnología">Tecnología</option>
+            <option value="Ciencia">Ciencia</option>
+            <option value="Otros">Otros</option>
+        </select>
+        <button type="submit">Publicar</button>
+    </form>
+</div>
+{% for n in noticias %}
+    <h1><a href="{{ url_for('news', id=n[0]) }}">{{ n[1] }}</a></h1>
+{% endfor %}
+<a href="{{ url_for('edit_user', id=1) }}">Editar usuario</a>
+{% endblock %}

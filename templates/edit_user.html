@@ -1,0 +1,25 @@
+{% extends "layout.html" %}
+{% block style %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/edituserstyles.css')}}">
+{% endblock %}
+{% block contenido %}
+<div id="login">
+    <form action="/inicio/editar_user/{{id[0][0]}}" method="POST">
+        </br>
+        <p id="user">Nombre</p>
+        <input type="text" name="user" value={{usuario[0][1]}}>
+        </br>
+        </br>
+        <p>Contraseña</p>
+        <input type="password" name="pass" value={{usuario[0][2]}}>
+        </br>
+        </br>
+        <p>Confirmar contraseña</p>
+        <input type="password" name="confirmpass" value={{usuario[0][2]}}>
+        </br>
+        </br>
+        <button id="btnIniciarSesion" type="submit">Actualizar</button>
+    </form>
+    {{id[0][0]}}
+</div>
+{% endblock %}

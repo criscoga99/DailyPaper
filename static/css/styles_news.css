@@ -1,0 +1,42 @@
+body{
+    background: url("/static/img/Fondo_usuario.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+#Compass{
+    width: 75px;
+    height: 75px;
+    margin-left: 95%;
+}
+#titular{
+    font-size: 100px;
+}
+#contenido{
+    font-size: 50px;
+}
+#noticia{
+    margin-left: 10%;
+}
+#postearComentarios{
+    margin-left: 10%;
+}
+input{
+    border-radius: 20px;
+    font: 100% Arial;
+    width: 75%;
+}
+button{
+    background: -webkit-gradient(linear,left top,left bottom,from(#4aa6d6),to(#207daa));
+    padding: 7px 20px;
+    border-radius: 10px;
+    color: white;
+    font-weight: bold;
+}
+#comentarios{
+    background-color: chartreuse;
+    margin-left: 10%;
+    width: 75%;
+    height: auto;
+}

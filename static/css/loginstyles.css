@@ -1,0 +1,95 @@
+body {
+    background: url("/static/img/Fondo.jpg") no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+input{
+    border-radius: 20px;
+    font: 75% Arial;
+}
+button{
+    background-color: orange;
+    border-radius: 10px;
+    color: white;
+    padding: 15px 30px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+#btnComenzar{
+    background-color: orange;
+    border-radius: 10px;
+    color: white;
+    padding: 15px 250px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 95%;
+    cursor: pointer;
+}
+#btnVolver{
+    background-color: orange;
+    border-radius: 10px;
+    color: white;
+    padding: 7px 50px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-left: 70%;
+    cursor: pointer;
+}
+#login{
+    background: -webkit-linear-gradient(top, #070F83, transparent);
+    border: rgb(10, 3, 102) 1px solid;
+    width: 400px;
+    height: 550px;
+    margin-top: 10%;
+    margin-left: 42%;
+    color: #EABE3F;
+    font: 200% Arial;
+    display: none;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 10px 5px 5px black;
+}
+#register{
+    background: -webkit-linear-gradient(top, #070F83, transparent);
+    border: rgb(10, 3, 102) 1px solid;
+    width: 400px;
+    height: 750px;
+    margin-top: 10%;
+    margin-left: 42%;
+    color: #EABE3F;
+    font: 200% Arial;
+    display: none;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 10px 5px 5px black;
+}
+#userCombobox{
+    border-radius: 20px;
+    font: 75% Arial;
+    width: 70%;
+}
+#portada{
+    margin-top: 15%;
+    margin-left: 50%;
+    color: white;
+}
+#Eslogan{
+    font-size: 500%;
+}
+#Autor{
+    font-size: 250%;
+    font-style: italic;
+}
+#mensaje{
+    font-size: 250%;
+    color: red;
+}

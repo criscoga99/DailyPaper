@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+{% block style %}
+<link rel="stylesheet" href="{{url_for('static', filename='css/userstyles.css')}}">
+{% endblock %}
+{% block contenido %}
+<a href="{{ url_for('inicio') }}"><button id="btnCasa"><img src="{{url_for('static', filename='img/Home.png')}}" id="Casa"></button></a>
+<div id="infouser">
+    {% for u in usuarios %}
+        <h1>{{ u[1] }}</h1>
+        <p>Tipo de usuario: {{ u[3] }}</p>
+    {% endfor %}
+</div>
+<hr id="separador">
+<div id="publicaciones">
+    {% for p in publicaciones %}
+        <h1><a href="{{ url_for('news', id=p[0]) }}">{{ p[1] }}</a></h1>
+    {% endfor %}
+</div>
+{% endblock %}
